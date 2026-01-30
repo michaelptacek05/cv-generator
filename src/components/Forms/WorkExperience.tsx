@@ -1,21 +1,46 @@
 import { useState } from "react";
 
+interface Work {
+    id: string;
+    companyName: string,
+    position: string,
+    jobDescription: string,
+    startDate: string,
+    endDate: string,
+}
 
 export default function WorkExperience() {
-    const [work, setWork] = useState({
-        companyName: '',
-        position: '',
-        jobDescription: '',
-        startDate: '',
-        endDate: '',
-    });
-
+    const [work, setWork] = useState<Work[]>([]);
     const [isEditing, setIsEditing] = useState(true);
+
+    const addWork = () => {
+        const newWork: Work = {
+            id: crypto.randomUUID();
+            companyName: '',
+            position: '',
+            jobDescription: '',
+            startDate: '',
+            endDate: '',    
+        }
+        setWork([...ServiceWorkerRegistration, newWork]);
+    };
+
+    const deleteWork = (id: string) => {
+        setWork(works.filter(works => work.id !== id));
+    }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setWork({ ...work, [name]: value });
+        const updatedWorks = works.map(work => {
+            if (work.id === id) {
+                return {...work, [name]: value};
+            }
+            return work;
+        });
+
+        setWork(updatedWorks);
     };
+
 
     if (isEditing) {
         return (
