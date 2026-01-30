@@ -1,11 +1,14 @@
-import Greetings from "./Greetings"
+import General from "./components/Forms/General";
+import Education from "./components/Forms/Education";
+import WorkExperience from "./components/Forms/WorkExperience";
 
-const word: string = "Hello world";
 
 function App() {
   return (
     <div>
-        <Greetings word={word} />
+      <General />
+      <Education />
+      <WorkExperience />
     </div>
   )
 }
