@@ -91,7 +91,7 @@ export default function App() {
     };
 
     return (
-        <div className="app-container">
+        <div className="flex flex-row">
             <div>
                 <General data={generalInfo} onChange={handleGeneralChange} />
                 <Education
@@ -108,11 +108,13 @@ export default function App() {
                 />
             </div>
 
-            <Render
-                general={generalInfo}
-                education={schools}
-                workExperience={works}
-            />
+            <div>
+                <Render
+                    general={generalInfo}
+                    education={schools}
+                    workExperience={works}
+                />
+            </div>
         </div>
     );
 }
