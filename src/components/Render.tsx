@@ -30,8 +30,8 @@ interface Render {
 
 export default function Render({ general, education, workExperience }: Render) {
     return (
-        <div className="cv-preview">
-            <div className="cv-header">
+        <div>
+            <div>
                 <h1>{general.fullName || "Tvé Jméno"}</h1>
                 <div className="contact-info">
                     {general.email && <span>{general.email}</span>}
