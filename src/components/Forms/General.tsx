@@ -1,72 +1,46 @@
-import { useState } from "react";
-
-
-export default function General() {
-    const [person, setPerson] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-    });
-
-    const [isEditing, setIsEditing] = useState(true);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setPerson({ ...person, [name]: value });
+interface GeneralProps {
+    data: {
+        fullName: string;
+        email: string;
+        phone: string;
     };
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-    if (isEditing) {
-        return (
+export default function General({ data, onChange }: GeneralProps) {
+    return (
+        <div>
+            <h3>Osobní údaje</h3>
             <div>
-                <h2>Základní údaje</h2>
-                <form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        setIsEditing(false);
-                    }}
-                >
-                    <label>
-                        Jméno
-                        <input
-                            type="text"
-                            name="fullName"
-                            value={person.fullName}
-                            onChange={handleChange}
-                        />
-                    </label>
-
-                    <label>
-                        E-mail
-                        <input
-                            type="email"
-                            name="email"
-                            value={person.email}
-                            onChange={handleChange}
-                        />
-                    </label>
-
-                    <label>
-                        Telefonní číslo
-                        <input
-                            type="tel"
-                            name="phone"
-                            value={person.phone}
-                            onChange={handleChange}
-                        />
-                    </label>
-
-                    <button type="submit">Potvrdit</button>
-                </form>
+                <label>Jméno</label>
+                <input
+                    type="text"
+                    name="fullName"
+                    value={data.fullName}
+                    onChange={onChange}
+                    placeholder="Jan Novák"
+                />
             </div>
-        );
-    } else {
-        return (
             <div>
-                <h2>{person.fullName}</h2>
-                <p>{person.email}</p>
-                <p>{person.phone}</p>
-                <button onClick={() => setIsEditing(true)}>Upravit</button>
+                <label>Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    value={data.email}
+                    onChange={onChange}
+                    placeholder="jan@novak.com"
+                />
             </div>
-        );
-    }
+            <div>
+                <label>Telefon</label>
+                <input
+                    type="tel"
+                    name="phone"
+                    value={data.phone}
+                    onChange={onChange}
+                    placeholder="+420 123 456 789"
+                />
+            </div>
+        </div>
+    );
 }
