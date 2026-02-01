@@ -86,7 +86,7 @@ export default function App() {
         setSchools(schools.filter((s) => s.id !== id));
     };
 
-    const deleteWork = (id: sting) => {
+    const deleteWork = (id: string) => {
         setWork(works.filter((w) => w.id !== id));
     };
 
