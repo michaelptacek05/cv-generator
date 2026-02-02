@@ -91,21 +91,27 @@ export default function App() {
     };
 
     return (
-        <div className="flex flex-row">
-            <div>
-                <General data={generalInfo} onChange={handleGeneralChange} />
-                <Education
-                    schools={schools}
-                    onChange={handleSchoolChange}
-                    onAdd={addSchool}
-                    onDelete={deleteSchool}
-                />
-                <WorkExperience
-                    works={works}
-                    onChange={handleWorkChange}
-                    onAdd={addWork}
-                    onDelete={deleteWork}
-                />
+        <div className="flex flex-row p-20 gap-10">
+            <div className="flex flex-col gap-5">
+                <div className="p-5 border-1 rounded-xl border-gray-400">
+                    <General data={generalInfo} onChange={handleGeneralChange} />
+                </div>
+                <div className="p-5 border-1 rounded-xl border-gray-400">
+                    <Education
+                        schools={schools}
+                        onChange={handleSchoolChange}
+                        onAdd={addSchool}
+                        onDelete={deleteSchool}
+                    />
+                </div>
+                <div className="p-5 border-1 rounded-xl border-gray-400">
+                    <WorkExperience
+                        works={works}
+                        onChange={handleWorkChange}
+                        onAdd={addWork}
+                        onDelete={deleteWork}
+                    />
+                </div>
             </div>
 
             <div>

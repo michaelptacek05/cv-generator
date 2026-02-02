@@ -31,9 +31,9 @@ interface Render {
 export default function Render({ general, education, workExperience }: Render) {
     return (
         <div>
-            <div>
-                <h1>{general.fullName || "Tvé Jméno"}</h1>
-                <div className="contact-info">
+            <div className="p-4">
+                <h1 className="pb-4 font-bold font-serif text-2xl">{general.fullName || "Tvé Jméno"}</h1>
+                <div>
                     {general.email && <span>{general.email}</span>}
                     {general.email && general.phone && <span> | </span>}
                     {general.phone && <span>{general.phone}</span>}
@@ -41,15 +41,14 @@ export default function Render({ general, education, workExperience }: Render) {
             </div>
 
             {education.length > 0 && (
-                <div className="cv-section">
-                    <h3 className="section-title">Vzdělání</h3>
+                <div className="p-4">
+                    <h3 className="pb-4 font-bold font-serif text-xl">Vzdělání</h3>
                     {education.map((school) => (
-                        <div key={school.id} className="cv-item">
-                            <div className="cv-item-header">
-                                <span className="bold">
-                                    {school.schoolName}
-                                </span>
-                                <span>{school.dateOfStudy}</span>
+                        <div key={school.id}>
+                            <div>                                
+                                    {school.schoolName && <span>{school.schoolName}</span>}
+                                    {school.schoolName && school.dateOfStudy && <span> | </span>}
+                                    {school.dateOfStudy && <span>{school.dateOfStudy}</span>}
                             </div>
                             <div>{school.title}</div>
                         </div>
@@ -58,15 +57,17 @@ export default function Render({ general, education, workExperience }: Render) {
             )}
 
             {workExperience.length > 0 && (
-                <div>
-                    <h3>Pracovní zkušenost</h3>
+                <div className="p-4">
+                    <h3 className="pb-4 font-bold font-serif text-xl">Pracovní zkušenost</h3>
                     {workExperience.map((work) => (
                         <div key={work.id}>
-                            <span>{work.companyName}</span>
-                            <span>{work.position}</span>
-                            <span>{work.jobDescription}</span>
-                            <span>{work.startDate}</span>
-                            <span>{work.endDate}</span>
+                            <div className="flex flex-col gap-2">
+                                <span>{work.companyName}</span>
+                                <span>{work.position}</span>
+                                <span>{work.jobDescription}</span>
+                                <span>{work.startDate}</span>
+                                <span>{work.endDate}</span>
+                            </div>
                         </div>
                     ))}
                 </div>
