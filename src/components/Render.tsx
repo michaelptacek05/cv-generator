@@ -30,7 +30,7 @@ interface Render {
 
 export default function Render({ general, education, workExperience }: Render) {
     return (
-        <div>
+        <div className="p-4 w-2xl h-screen border rounded-xl border-gray-400">
             <div className="p-4">
                 <h1 className="pb-4 font-bold font-serif text-2xl">{general.fullName || "Tvé Jméno"}</h1>
                 <div>

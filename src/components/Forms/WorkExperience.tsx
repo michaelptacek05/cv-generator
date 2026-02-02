@@ -98,7 +98,7 @@ export default function WorkExperience({
                     <div className="pb-5 flex flex-col">
                         <button 
                             onClick={() => onDelete(work.id)}
-                            className="py-2 px-4 bg-red-500 text-white rounded-xl cursor-pointer hover:bg-red-700"
+                            className="py-2 px-4 bg-red-500 text-white rounded-xl cursor-pointer w-full hover:bg-red-700"
                         >
                             Smazat
                         </button>
@@ -108,7 +108,7 @@ export default function WorkExperience({
 
             <button
                 onClick={onAdd}
-                className="py-2 px-4 bg-blue-500 text-white rounded-xl cursor-pointer hover:bg-blue-700"
+                className="py-2 px-4 bg-blue-500 text-white rounded-xl cursor-pointer w-full hover:bg-blue-700"
             >
                 Přidat pracovní pozici
             </button>
