@@ -57,8 +57,8 @@ export default function App() {
     };
 
     const addSchool = () => {
-        setSchools([
-            ...schools,
+        setSchools((prev) => [
+            ...prev,
             {
                 id: crypto.randomUUID(),
                 schoolName: "",
@@ -69,8 +69,8 @@ export default function App() {
     };
 
     const addWork = () => {
-        setWork([
-            ...works,
+        setWork((prev) => [
+            ...prev,
             {
                 id: crypto.randomUUID(),
                 companyName: "",
